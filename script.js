@@ -13,6 +13,7 @@ resizeBtn.addEventListener("click",newGrid);
 
     for(i = 0; i < 256; i++){
         const gridDiv = document.createElement("div");
+        gridDiv.id = 'grid';
 
         gridDiv.style.cssText = 'height: 37.5px; width: 37.5px;'
         container.appendChild(gridDiv);
@@ -22,13 +23,16 @@ resizeBtn.addEventListener("click",newGrid);
         })
     }
 
-    function newGrid(){
 
-        body.removeChild(container);
-        const newContainer = document.createElement("div");
-        newContainer.id ='newContainer';
-        body.appendChild(newContainer);
+   
+
+    function newGrid(){
         
+        
+       
+        
+        container.innerHTML = '';
+
         let promptUser = prompt('Enter a value between 16 and 100 to resize the grid!');
         console.log(promptUser);
         let newGridDim = promptUser * promptUser;
@@ -44,7 +48,7 @@ resizeBtn.addEventListener("click",newGrid);
         
     
             gridDiv.style.cssText = 'height: ' + newDivDim + 'px; width: ' + newDivDim + 'px;';            container.appendChild(gridDiv);
-            newContainer.appendChild(gridDiv);
+            container.appendChild(gridDiv);
             gridDiv.addEventListener("mouseover",() => {
                 gridDiv.style.cssText = 'height: ' + newDivDim + 'px; width: ' + newDivDim + 'px; background-color: black';
             })
